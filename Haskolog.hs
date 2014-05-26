@@ -24,6 +24,7 @@ type Bindings = [(String, Expr)]
 
 instance IsString Expr where
     fromString ('?' : rest) = Lvar rest
+    fromString ('\'' : rest) = Lit rest
     fromString s = Lit s
 
 instance Monad Error where
